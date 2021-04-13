@@ -9,5 +9,5 @@ urlpatterns = [
     path('333/', views.jq2),
     path('342', views.index3),
     path('', views.index),
-    
+
 ]
