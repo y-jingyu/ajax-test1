@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" id="form1">
+        <p>评论:</p>
+        <p>姓名:<input type="text" name="username" id="username" /></p>
+        <p>内容:<textarea name="content" id="content" rows="2" cols="20"></textarea></p>
+        <p><input type="button" id="send" value="提交" /></p>
+      </form>
+      <div class="comment">已有评论:</div>
+      <div id="redText">{{username,content}}</div>
+    {% load static %}
+    <script src="{% static 'jquery-3.4.1.js' %}"></script>
+    <script>
+        $('#send').click(function(){
+        $.get('dome2.html',{
+          username:$("#username").val(),
+          content:$('#content').val()
+        },function(data,textsTATUS){
+          $('#redText').html(data);
+        })
+      })
+    </script>
+</body>
+</html>
